@@ -3,6 +3,13 @@ create database jewel;
 
 use jewel;
 
+CREATE TABLE `user` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) DEFAULT NULL,
+  `password` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) default charset=utf8;
+
 create table code_type (
   `type` int auto_increment primary key comment '类型',
   `name` varchar(100) comment '名称',
