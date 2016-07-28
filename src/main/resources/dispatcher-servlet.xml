@@ -14,7 +14,7 @@
     <mvc:default-servlet-handler />
     <mvc:view-controller path="/" view-name="index"/>
 
-    <mvc:resources mapping="/resources/**" location="/WEB-INF/resource"/>
+    <mvc:resources mapping="/resources/**" location="/WEB-INF/resources/"/>
     <!--<mvc:view-controller path="/error/404" view-name="error/404.jsp" />-->
 
     <!--    <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">

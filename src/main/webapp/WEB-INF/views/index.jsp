@@ -10,6 +10,7 @@
 <html>
 <head>
     <title></title>
+    <script type="text/javascript" src="<c:url value="/resources/js/index.js"/>"></script>
 </head>
 <body>
 hello world ${name}
