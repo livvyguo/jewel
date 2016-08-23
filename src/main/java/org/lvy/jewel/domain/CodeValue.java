@@ -7,6 +7,10 @@ import java.io.Serializable;
  */
 public class CodeValue implements Serializable {
 
+    /**
+     * 
+     */
+    private static final long serialVersionUID = 8062390167709533614L;
     private Integer id;
     private Integer type;
     private Integer value;

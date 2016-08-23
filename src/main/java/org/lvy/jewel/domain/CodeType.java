@@ -1,13 +1,16 @@
 package org.lvy.jewel.domain;
 
-import java.util.List;
-
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * Created by livvy (livvyguo@gmail.com) on 16/7/24.
  */
 public class CodeType implements Serializable {
+    /**
+     * 
+     */
+    private static final long serialVersionUID = -5353136218280263986L;
     private Integer type;
     private String name;
     private String remark;

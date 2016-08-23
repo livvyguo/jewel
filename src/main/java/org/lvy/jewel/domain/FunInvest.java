@@ -1,16 +1,20 @@
 package org.lvy.jewel.domain;
 
-import org.apache.commons.lang3.builder.ToStringBuilder;
-import org.apache.commons.lang3.builder.ToStringStyle;
-
 import java.io.Serializable;
 import java.math.BigDecimal;
+
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 
 /**
  * Created by livvy (livvyguo@gmail.com) on 16/7/24.
  */
 public class FunInvest implements Serializable {
 
+    /**
+     * 
+     */
+    private static final long serialVersionUID = 7055432487030760593L;
     private Integer id;
     /**
      * 固定的type
