@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.lvy.jewel.persistence.ProjectTypeMapper">
+    <resultMap id="projectTypeResult" type="org.lvy.jewel.domain.ProjectType">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="duration" property="duration"/>
+        <result column="need_resources" property="needResources"/>
+        <result column="remark" property="remark"/>
+        <result column="valid" property="valid"/>
+    </resultMap>
+
+    <select id="selectProjectType" resultMap="projectTypeResult">
+        select * from project_type where id = #{id}
+    </select>
+
+    <select id="selectProjectTypes" resultMap="projectTypeResult">
+        select * from project_type
+    </select>
+
+</mapper>

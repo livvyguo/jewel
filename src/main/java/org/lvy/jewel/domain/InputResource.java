@@ -1,13 +1,16 @@
 package org.lvy.jewel.domain;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+
 import java.io.Serializable;
 
-public class InputResource implements Serializable{
+public class InputResource implements Serializable {
 
     /**
      * id
      */
-    private String id;
+    private Integer id;
     /**
      * 资源月份
      */
@@ -20,10 +23,11 @@ public class InputResource implements Serializable{
     /**
      * id getter & setter
      */
-    public String getId() {
+    public Integer getId() {
         return id;
     }
-    public void setId(String id){
+
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -33,7 +37,8 @@ public class InputResource implements Serializable{
     public Integer getMonth() {
         return month;
     }
-    public void setMonth(Integer month){
+
+    public void setMonth(Integer month) {
         this.month = month;
     }
 
@@ -43,8 +48,14 @@ public class InputResource implements Serializable{
     public Integer getResource() {
         return resource;
     }
-    public void setResource(Integer resource){
+
+    public void setResource(Integer resource) {
         this.resource = resource;
     }
 
+
+    @Override
+    public String toString() {
+        return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
+    }
 }

@@ -1,5 +1,8 @@
 package org.lvy.jewel.domain;
 
+import org.apache.commons.lang.builder.ToStringBuilder;
+import org.apache.commons.lang.builder.ToStringStyle;
+
 import java.math.BigDecimal;
 
 /**
@@ -42,5 +45,10 @@ public class Factor {
 
     public void setFunInvestId(Integer funInvestId) {
         this.funInvestId = funInvestId;
+    }
+
+    @Override
+    public String toString() {
+        return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
     }
 }

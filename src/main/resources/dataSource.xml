@@ -24,7 +24,7 @@
         <property name="dataSource" ref="dataSource" />
         <property name="mapperLocations" value="classpath:persistence/**/*.xml" />
         <property name="typeAliasesPackage" value="org.lvy.jewel.domain" />
-        <!--<property name="plugins" value=""></property>-->
+        <property name="typeHandlersPackage" value="org.lvy.jewel.component.mybatis.handlers" />
     </bean>
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="basePackage" value="org.lvy.jewel.persistence" />

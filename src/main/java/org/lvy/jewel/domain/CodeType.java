@@ -1,5 +1,8 @@
 package org.lvy.jewel.domain;
 
+import org.apache.commons.lang.builder.ToStringBuilder;
+import org.apache.commons.lang.builder.ToStringStyle;
+
 import java.io.Serializable;
 import java.util.List;
 
@@ -56,5 +59,10 @@ public class CodeType implements Serializable {
 
     public void setValues(List<CodeValue> values) {
         this.values = values;
+    }
+
+    @Override
+    public String toString() {
+        return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
     }
 }

@@ -1,6 +1,7 @@
 package org.lvy.jewel.controller;
 
-import org.lvy.jewel.domain.User;
+import com.google.common.collect.ImmutableMap;
+import org.lvy.jewel.service.IResourceAnalysisResource;
 import org.lvy.jewel.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -8,13 +9,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.util.List;
+import java.util.Map;
 
 /**
  * Created by livvy on 15/6/27.
  */
-@RequestMapping("/")
 @Controller
+@RequestMapping("/")
 public class HomeController {
 
     public UserService getUserService() {
@@ -28,18 +29,30 @@ public class HomeController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private IResourceAnalysisResource resourceAnalysisService;
+
+    public IResourceAnalysisResource getResourceAnalysisService() {
+        return resourceAnalysisService;
+    }
+
+    public void setResourceAnalysisService(IResourceAnalysisResource resourceAnalysisService) {
+        this.resourceAnalysisService = resourceAnalysisService;
+    }
+
     @RequestMapping("/")
     public String index(Model model) {
-        List<User> allUser = userService.findAllUser();
-        System.out.println(allUser);
-        model.addAttribute("allUser", allUser);
+        model.addAttribute("name", "guozheng");
         return "index";
     }
 
 
     @ResponseBody
     @RequestMapping("/getJson")
-    public String getJson() {
-        return "Json";
+    public Map<String, ?> getJson() {
+
+//        getResourceAnalysisService().test();
+        return ImmutableMap.of("success", true);
     }
+
 }

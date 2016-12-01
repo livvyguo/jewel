@@ -1,7 +1,10 @@
 package org.lvy.jewel.domain;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDate;
 
 
 public class Project implements Serializable{
@@ -21,7 +24,7 @@ public class Project implements Serializable{
     /**
      * 交付日期
      */
-    private Date deliveryDate;
+    private LocalDate deliveryDate;
 
     /**
      * id getter & setter
@@ -56,11 +59,17 @@ public class Project implements Serializable{
     /**
      * deliveryDate getter & setter
      */
-    public Date getDeliveryDate() {
+    public LocalDate getDeliveryDate() {
         return deliveryDate;
     }
-    public void setDeliveryDate(Date deliveryDate){
+    public void setDeliveryDate(LocalDate deliveryDate){
         this.deliveryDate = deliveryDate;
+    }
+
+
+    @Override
+    public String toString() {
+        return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
     }
 
 }
