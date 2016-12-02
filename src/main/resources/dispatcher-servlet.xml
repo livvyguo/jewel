@@ -29,6 +29,7 @@
                 <bean class="org.lvy.jewel.component.converter.IntToYearConverter"/>
                 <bean class="org.lvy.jewel.component.converter.StringToYearConverter"/>
                 <bean class="org.lvy.jewel.component.converter.StringToYearMonthConverter"/>
+                <bean class="org.lvy.jewel.component.converter.StringToLocalDateConverter"/>
             </set>
         </property>
     </bean>
@@ -36,8 +37,6 @@
     <context:component-scan base-package="org.lvy.jewel">
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
-
-    <mvc:annotation-driven/>
 
     <mvc:default-servlet-handler />
     <mvc:view-controller path="/" view-name="index"/>

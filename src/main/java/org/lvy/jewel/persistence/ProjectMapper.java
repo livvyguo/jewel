@@ -12,4 +12,7 @@ import java.util.List;
 public interface ProjectMapper {
 
     List<Project> selectProjects();
+
+    void addProject(Project project);
+
 }

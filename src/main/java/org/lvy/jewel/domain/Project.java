@@ -5,6 +5,7 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.YearMonth;
 
 
 public class Project implements Serializable{
@@ -20,11 +21,43 @@ public class Project implements Serializable{
     /**
      * 项目类型
      */
-    private Long type;
+    private Integer type;
     /**
      * 交付日期
      */
     private LocalDate deliveryDate;
+
+    private Integer duration;
+
+    private YearMonth deliveryMonth;
+
+    private YearMonth startMonth;
+
+    private Integer needResources;
+
+    public Integer getNeedResources() {
+        return needResources;
+    }
+
+    public void setNeedResources(Integer needResources) {
+        this.needResources = needResources;
+    }
+
+    public YearMonth getStartMonth() {
+        return startMonth;
+    }
+
+    public void setStartMonth(YearMonth startMonth) {
+        this.startMonth = startMonth;
+    }
+
+    public YearMonth getDeliveryMonth() {
+        return deliveryMonth;
+    }
+
+    public void setDeliveryMonth(YearMonth deliveryMonth) {
+        this.deliveryMonth = deliveryMonth;
+    }
 
     /**
      * id getter & setter
@@ -49,10 +82,10 @@ public class Project implements Serializable{
     /**
      * type getter & setter
      */
-    public Long getType() {
+    public Integer getType() {
         return type;
     }
-    public void setType(Long type){
+    public void setType(Integer type){
         this.type = type;
     }
 
@@ -72,4 +105,11 @@ public class Project implements Serializable{
         return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
     }
 
+    public Integer getDuration() {
+        return duration;
+    }
+
+    public void setDuration(Integer duration) {
+        this.duration = duration;
+    }
 }

@@ -8,6 +8,18 @@
         <result column="type" property="type"/>
         <result column="delivery_date" property="deliveryDate"/>
     </resultMap>
+
+    <insert id="addProject">
+        INSERT
+        INTO
+          `project`(`name`, `type`, `delivery_date`)
+        VALUES(
+          #{name},
+          #{type},
+          #{deliveryDate}
+        )
+    </insert>
+
     <select id="selectProjects" resultMap="projectResult">
         select * from project
     </select>
