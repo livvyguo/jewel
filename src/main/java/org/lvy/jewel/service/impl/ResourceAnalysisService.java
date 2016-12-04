@@ -1,6 +1,7 @@
 package org.lvy.jewel.service.impl;
 
 import com.github.abel533.echarts.Option;
+import com.github.abel533.echarts.data.SeriesData;
 import com.github.abel533.echarts.series.Series;
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
@@ -107,11 +108,11 @@ public class ResourceAnalysisService implements IResourceAnalysisResource {
         ).collect(Collectors.toList());
 
         List<Series> series = relatedProjects.stream().map(p -> {
-            List<Integer> data = months.stream().map(m -> {
+            List<Object> data = months.stream().map(m -> {
                 if (m.equals(p.getStartMonth())
                     || m.equals(p.getDeliveryMonth())
                     || (m.isAfter(p.getStartMonth()) && m.isBefore(p.getDeliveryMonth()))) {
-                    return p.getDuration();
+                    return new SeriesData(p.getDuration(), ECharts.newTipItemStyle("需要增加资源:"));
                 }
                 return 0;
             }).collect(Collectors.toList());
@@ -130,7 +131,7 @@ public class ResourceAnalysisService implements IResourceAnalysisResource {
                     .map(ir -> ir.getResource())
                     .reduce((x, y) -> x + y)
                     .orElse(0))
-            .collect(Collectors.toList())).markPoint(ECharts.newMarkPoint()));
+            .collect(Collectors.toList())).markPoint(ECharts.newMarkPoint()).markLine(ECharts.newMarkLine()));
         seriesAll.addAll(series);
 
         List<String> legends = relatedProjects.stream().map(p -> p.getName()).collect(Collectors

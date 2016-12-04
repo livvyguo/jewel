@@ -10,8 +10,12 @@ import com.github.abel533.echarts.code.Trigger;
 import com.github.abel533.echarts.data.Data;
 import com.github.abel533.echarts.feature.*;
 import com.github.abel533.echarts.series.*;
+import com.github.abel533.echarts.style.ItemStyle;
+import com.github.abel533.echarts.style.TextStyle;
+import com.github.abel533.echarts.style.itemstyle.Normal;
 
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Created by livvy (livvyguo@gmail.com) on 16/3/10.
@@ -77,7 +81,7 @@ public final class ECharts {
                 markLine(newMarkLine());
     }
 
-    private static MarkLine newMarkLine() {
+    public static MarkLine newMarkLine() {
         return new MarkLine().data(
                 new Data().setType(MarkType.average).name("平均值")
         );
@@ -124,7 +128,7 @@ public final class ECharts {
                 legend(legends.toArray()).
                 calculable(true).
                 toolbox(
-                        new Toolbox().show(true).x("750").feature(
+                        new Toolbox().show(true).x("10").y("40").feature(
                                 new Mark().show(true)
                                 , new DataView().show(true)
 //                                ,new MagicType().show(true).type(new String[]{"bar"})
@@ -151,6 +155,28 @@ public final class ECharts {
         return new Bar().stack(stack).
                 name(name).
                 data(data.toArray());
+    }
+
+    public static <T> Series newBarWithStyle(String name, String stack, List<T> data) {
+        Series series = newBar(name, stack, data);
+        ItemStyle itemStyle = newTipItemStyle("需要增加");
+        series.setItemStyle(itemStyle);
+        return series;
+    }
+
+    public static ItemStyle newTipItemStyle(String tip) {
+        ItemStyle itemStyle = new ItemStyle();
+        itemStyle.normal(new Normal()
+            .label(
+                new Label()
+                    .show(true)
+                    .position("top")
+                    .formatter(Objects.toString(tip, "") + "{c}")
+                    .textStyle(
+                        new TextStyle()
+                            .fontFamily("微软雅黑")
+                            .fontSize(20).fontWeight("bold"))));
+        return itemStyle;
     }
 
     public static <T> Series newBarAverageLine(String name, String stack, List<T> data) {

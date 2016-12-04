@@ -30,6 +30,7 @@
     </content>
     <orderEntry type="jdk" jdkName="1.8" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Maven: com.github.abel533:ECharts:3.0.0.2" level="project" />
     <orderEntry type="library" name="Maven: org.apache.tiles:tiles-extras:3.0.5" level="project" />
     <orderEntry type="library" name="Maven: org.apache.tiles:tiles-core:3.0.5" level="project" />
     <orderEntry type="library" name="Maven: org.apache.tiles:tiles-api:3.0.5" level="project" />
